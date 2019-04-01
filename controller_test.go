@@ -39,7 +39,7 @@ func (tw *testWriter) Write(p []byte) (int, error) {
 
 func createInternalNode(name string, addr string) *corev1.Node {
 	return createNode(name, []corev1.NodeAddress{
-		corev1.NodeAddress{
+		{
 			Type:    corev1.NodeInternalIP,
 			Address: addr,
 		},

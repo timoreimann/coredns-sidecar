@@ -97,7 +97,7 @@ func TestToHostRecord(t *testing.T) {
 		{
 			name: "internal IP address only",
 			nodeAddresses: []corev1.NodeAddress{
-				corev1.NodeAddress{
+				{
 					Type:    corev1.NodeInternalIP,
 					Address: "1.1.1.1",
 				},
@@ -110,7 +110,7 @@ func TestToHostRecord(t *testing.T) {
 		{
 			name: "external IP address only",
 			nodeAddresses: []corev1.NodeAddress{
-				corev1.NodeAddress{
+				{
 					Type:    corev1.NodeExternalIP,
 					Address: "1.1.1.1",
 				},
@@ -123,11 +123,11 @@ func TestToHostRecord(t *testing.T) {
 		{
 			name: "internal and external IP addresses",
 			nodeAddresses: []corev1.NodeAddress{
-				corev1.NodeAddress{
+				{
 					Type:    corev1.NodeInternalIP,
 					Address: "1.1.1.1",
 				},
-				corev1.NodeAddress{
+				{
 					Type:    corev1.NodeExternalIP,
 					Address: "2.2.2.2",
 				},
