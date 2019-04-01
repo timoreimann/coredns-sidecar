@@ -1,0 +1,8 @@
+FROM gcr.io/distroless/static
+
+ADD bin/linux_amd64/{ARG_BIN} /{ARG_BIN}
+
+# This would be nicer as `nobody:nobody` but distroless has no such entries.
+USER 65535:65535
+
+ENTRYPOINT ["/{ARG_BIN}"]
