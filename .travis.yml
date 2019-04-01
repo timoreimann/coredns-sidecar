@@ -1,0 +1,9 @@
+language: go
+
+go:
+- "1.12.1"
+
+services:
+  - docker
+script:
+- make test
