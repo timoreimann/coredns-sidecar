@@ -22,7 +22,7 @@ To increase the amount of logging, add `-v=3` as parameter.
 
 - `make test`: run tests
 - `make build`: compile a native binary into `bin/$OS_$ARCH`.
-- `make container`: create a Docker image
+- `make container`: create a Docker image (set the `VERSION` environment variable to choose a custom image tag)
 - `make push`: push the Docker image
 
 ## Releasing
