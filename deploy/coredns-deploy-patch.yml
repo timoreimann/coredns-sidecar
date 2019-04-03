@@ -1,0 +1,35 @@
+spec:
+  template:
+    spec:
+      containers:
+      - name: coredns
+        volumeMounts:
+        - mountPath: /shared
+          name: hostsfile
+      - args:
+        - -hostsfile
+        - /shared/hosts
+        image: timoreimann/coredns-sidecar:0.0.1
+        name: hostsfile-updater
+        resources:
+          limits:
+            memory: 100Mi
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        volumeMounts:
+        - mountPath: /shared
+          name: hostsfile
+      initContainers:
+      # Use an init container to create an empty hosts file with proper file permissions. We need this because
+      # the sidecar implementation copies over the permissions from an existing file.
+      - name: hostsfile-creator
+        image: busybox:1.30.1
+        command: ['sh', '-c', 'touch /shared/hosts && chmod 755 /shared/hosts']
+        volumeMounts:
+        - mountPath: /shared
+          name: hostsfile
+      volumes:
+      - emptyDir: {}
+        name: hostsfile
+

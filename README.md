@@ -25,6 +25,10 @@ To increase the amount of logging, add `-v=3` as parameter.
 - `make container`: create a Docker image (set the `VERSION` environment variable to choose a custom image tag)
 - `make push`: push the Docker image
 
+## Deploying
+
+See [the deployment guide](/deploy/README.md).
+
 ## Releasing
 
 1. Update the `VERSION` variable in the Makefile.
